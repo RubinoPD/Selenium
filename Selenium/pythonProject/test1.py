@@ -167,8 +167,63 @@ try:
     WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.XPATH, '//h6[text()="Report to"]'))
     )
+    time.sleep(2)
 
-    # toliau koduojam
+    # Add Supervisor
+    add_supervisor_btn = driver.find_element(By.XPATH, '/html/body/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div[1]/div/button')
+    add_supervisor_btn.click()
+    time.sleep(2)
+
+    # Irgi neveikia nes reikia paspausti ant pasirinkimu kai pradedi rasyti
+    supervisor_name = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/input[1]')
+    supervisor_name.send_keys("Amelia Brown")
+
+    reporting_method = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]')
+    reporting_method.click()
+    time.sleep(2)
+
+
+    # Neveikia :(
+    desired_reporting_method = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, '//span[text()="Direct"]'))
+    )
+    desired_employment_status.click()
+    time.sleep(2)
+
+    supervisor_save_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[2]/button[2]')
+    supervisor_save_btn.submit()
+    time.sleep(2)
+
+    # Go to Employee List
+    driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList")
+
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, '//h5[text()="Employee Information"]'))
+    )
+    time.sleep(2)
+
+    # Employment Status Filter
+    employment_filter_dropdown = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable(
+            (By.XPATH,
+             '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]'))
+    )
+    employment_filter_dropdown.click()
+    time.sleep(2)
+
+    desired_employment_filter = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, '//span[text()="Full-Time Permanent"]'))
+    )
+    desired_employment_filter.click()
+    time.sleep(2)
+
+    supervisor_name_filter = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/input[1]')
+    supervisor_name_filter.send_keys("Amelia  Brown")
+    time.sleep(2)
+
+    search_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/form[1]/div[2]/button[2]')
+    search_btn.submit()
+    time.sleep(2)
 
 
 except Exception as e:
