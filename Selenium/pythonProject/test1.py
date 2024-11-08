@@ -1,7 +1,9 @@
 import os.path
 from sys import executable, exception
+from time import sleep
 
 from selenium import webdriver
+from selenium.webdriver import Keys
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -209,14 +211,19 @@ try:
     # Input name of the supervisor
     supervisor_name = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/input[1]')
     supervisor_name.send_keys("Bobert Supervisor")
-    time.sleep(1)
-
-    # Select the supervisor from the suggestion list
-    supervisor_suggestion = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, '//div[contains(@class, "oxd-autocomplete-dropdown")]//div[text()="Bobert Supervisor"]'))
-    )
     time.sleep(2)
-    supervisor_suggestion.click()
+
+    # # Select the supervisor from the suggestion list
+    # supervisor_suggestion = WebDriverWait(driver, 10).until(
+    #     EC.element_to_be_clickable(
+    #         (By.XPATH, '//div[contains(@class, "oxd-autocomplete-dropdown")]//div[text()="Bobert Supervisor"]'))
+    # )
+    # supervisor_suggestion.click()
+
+    supervisor_name.send_keys(Keys.ARROW_DOWN)
+    time.sleep(2)
+    supervisor_name.send_keys(Keys.ENTER)
+    time.sleep(1)
 
     # Click on the reporting method
     reporting_method = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]')
