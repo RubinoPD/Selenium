@@ -271,7 +271,7 @@ try:
     time.sleep(2)
 
     supervisor_name_filter = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/div[5]/div[1]/div[2]/div[1]/div[1]/input[1]')
-    supervisor_name_filter.send_keys("Amelia  Brown")
+    supervisor_name_filter.send_keys("Bobert Supervisor")
     time.sleep(2)
 
     search_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/form[1]/div[2]/button[2]')
