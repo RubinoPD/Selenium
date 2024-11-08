@@ -18,11 +18,11 @@ driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()
 
 try:
 
-    # 1: Go to the login page
+    # Go to the login page
     driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
     time.sleep(2)
 
-    # 2: Login to the dashboard
+    # Login to the dashboard
     username_field = driver.find_element(By.NAME, 'username')
     username_field.send_keys("Admin")
 
@@ -33,11 +33,43 @@ try:
     login_button.submit()
     time.sleep(5)
 
-    # 3: Navigate to Add Employee page
+    # Navigate to Add Employee page to add user that will be used later for supervisor
     driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee")
     time.sleep(2)
 
-    # 4: Add employee information
+    # Add employee information for supervisor
+    first_name_field_super = driver.find_element(By.NAME, 'firstName')
+    first_name_field_super.send_keys("Bobert")
+
+    last_name_field_super = driver.find_element(By.NAME, 'lastName')
+    last_name_field_super.send_keys("Supervisor")
+
+    employee_id_field_super = driver.find_element(By.XPATH,'/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[2]/div/div/div[2]/input')
+    employee_id_field_super.send_keys("7914")
+
+    login_details_enable_super = driver.find_element(By.XPATH,'/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[2]/div/label/span')
+    login_details_enable_super.click()
+
+    create_username = driver.find_element(By.XPATH,'/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/input')
+    create_username.send_keys("bobert.supervisor")
+
+    create_password_super = driver.find_element(By.XPATH,'/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[4]/div/div[1]/div/div[2]/input')
+    create_password_super.send_keys("bobert123")
+
+    confirm_password_super = driver.find_element(By.XPATH,'/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[4]/div/div[2]/div/div[2]/input')
+    confirm_password_super.send_keys("bobert123")
+
+    time.sleep(10)
+
+    save_button_super = driver.find_element(By.XPATH, '//button[@type="submit"]')
+    save_button_super.submit()
+    time.sleep(5)
+
+    # Navigate to Add Employee page
+    driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee")
+    time.sleep(2)
+
+    # Add employee information
     first_name_field = driver.find_element(By.NAME, 'firstName')
     first_name_field.send_keys("Bobert")
 
@@ -159,8 +191,8 @@ try:
     job_save_btn.submit()
     time.sleep(5)
 
-    # Click on Report-to button
 
+    # Click on Report-to button
     report_to_btn = driver.find_element(By.XPATH, '//a[text()="Report-to"]')
     report_to_btn.click()
 
@@ -174,25 +206,34 @@ try:
     add_supervisor_btn.click()
     time.sleep(2)
 
-    # Irgi neveikia nes reikia paspausti ant pasirinkimu kai pradedi rasyti
+    # Input name of the supervisor
     supervisor_name = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/input[1]')
-    supervisor_name.send_keys("Amelia Brown")
+    supervisor_name.send_keys("Bobert Supervisor")
+    time.sleep(1)
 
+    # Select the supervisor from the suggestion list
+    supervisor_suggestion = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, '//div[contains(@class, "oxd-autocomplete-dropdown")]//div[text()="Bobert Supervisor"]'))
+    )
+    time.sleep(2)
+    supervisor_suggestion.click()
+
+    # Click on the reporting method
     reporting_method = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]')
     reporting_method.click()
     time.sleep(2)
 
-
-    # Neveikia :(
+    # Choose reporting method.
     desired_reporting_method = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, '//span[text()="Direct"]'))
+        EC.element_to_be_clickable((By.XPATH, '//div[@role="option" and text()="Direct"]'))
     )
     desired_employment_status.click()
     time.sleep(2)
 
+    # Save the supervisor
     supervisor_save_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[2]/button[2]')
     supervisor_save_btn.submit()
-    time.sleep(2)
+    time.sleep(5)
 
     # Go to Employee List
     driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList")
