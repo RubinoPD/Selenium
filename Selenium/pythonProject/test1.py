@@ -213,17 +213,17 @@ try:
     supervisor_name.send_keys("Bobert Supervisor")
     time.sleep(2)
 
+    supervisor_name.send_keys(Keys.ARROW_DOWN)
+    time.sleep(2)
+    supervisor_name.send_keys(Keys.ENTER)
+    time.sleep(1)
+
     # # Select the supervisor from the suggestion list
     # supervisor_suggestion = WebDriverWait(driver, 10).until(
     #     EC.element_to_be_clickable(
     #         (By.XPATH, '//div[contains(@class, "oxd-autocomplete-dropdown")]//div[text()="Bobert Supervisor"]'))
     # )
     # supervisor_suggestion.click()
-
-    supervisor_name.send_keys(Keys.ARROW_DOWN)
-    time.sleep(2)
-    supervisor_name.send_keys(Keys.ENTER)
-    time.sleep(1)
 
     # Click on the reporting method
     reporting_method = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]')
@@ -232,9 +232,14 @@ try:
 
     # Choose reporting method.
     desired_reporting_method = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, '//div[@role="option" and text()="Direct"]'))
+        EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
     )
-    desired_employment_status.click()
+
+    # Loop through the list
+    for option in desired_reporting_method:
+        if option.text.strip() == "Direct":
+            option.click()
+            break
     time.sleep(2)
 
     # Save the supervisor
