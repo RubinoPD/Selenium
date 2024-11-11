@@ -57,7 +57,7 @@ vacancy_options = WebDriverWait(driver, 10).until(
     EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
 )
 for option in vacancy_options:
-    if option.text.strip() == "Software Engineer":
+    if option.text.strip() == "Payroll Administrator":
         option.click()
         break
 time.sleep(1)
@@ -120,7 +120,7 @@ time.sleep(2)
 
 shortlist_save_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/button[2]')
 shortlist_save_btn.submit()
-time.sleep(5)
+time.sleep(6)
 
 # Shedule interview
 shedule_interview_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[2]/div[2]/button[2]')
