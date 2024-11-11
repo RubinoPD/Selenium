@@ -88,4 +88,20 @@ gender.click()
 # Save info
 save_personal_details_btn = driver.find_element(By.XPATH, '//div[@class="orangehrm-horizontal-padding orangehrm-vertical-padding"]//button[@type="submit"][normalize-space()="Save"]')
 save_personal_details_btn.submit()
+time.sleep(3)
+
+# Custom fields for blood type and test_field with save button
+blood_type_dropdown = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]')
+time.sleep(2)
+blood_type_dropdown.send_keys(Keys.ARROW_DOWN)
+time.sleep(2)
+blood_type_dropdown.send_keys(Keys.ENTER)
+time.sleep(1)
+
+test_field = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[2]/input[1]')
+test_field.send_keys("TEST")
+
+custom_fields_save_btn = driver.find_element(By.XPATH, '//div[@class="orangehrm-custom-fields"]//button[@type="submit"][normalize-space()="Save"]')
+custom_fields_save_btn.submit()
+time.sleep(3)
 
