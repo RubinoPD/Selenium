@@ -142,7 +142,7 @@ save_attachment_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div
 save_attachment_btn.submit()
 time.sleep(5)
 
-# File edit/download/remove
+# File edit
 attachment_edit_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/button[1]/i[1]')
 attachment_edit_btn.click()
 time.sleep(3)
@@ -160,3 +160,19 @@ save_edit_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/di
 save_edit_btn.submit()
 time.sleep(5)
 
+# File Download
+download_attachment_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/button[3]/i[1]')
+download_attachment_btn.click()
+time.sleep(5)
+
+# File Delete
+delete_attachment_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/button[2]/i[1]')
+delete_attachment_btn.click()
+time.sleep(3)
+
+alert_btn_yes = driver.find_element(By.XPATH, '/html/body/div/div[3]/div/div/div/div[3]/button[2]')
+alert_btn_yes.click()
+time.sleep(5)
+
+
+print("2 uzduotis padaryta")
