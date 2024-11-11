@@ -105,3 +105,36 @@ custom_fields_save_btn = driver.find_element(By.XPATH, '//div[@class="orangehrm-
 custom_fields_save_btn.submit()
 time.sleep(3)
 
+# Attachments
+add_button = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/button[1]')
+add_button.click()
+time.sleep(2)
+
+file_path = os.path.abspath("C:/Users/RK/Desktop/Projects/Selenium/CV.txt")
+
+# Attempt to upload file
+try:
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"File not found: {file_path}")
+
+    upload_field = driver.find_element(By.XPATH, '//input[@type="file"]')
+    upload_field.send_keys(file_path)
+    print("File uploaded successfully")
+
+except FileNotFoundError as fnf_error:
+    print(f"Error: {fnf_error}")
+
+except Exception as upload_error:
+    print(f"Error uploading image: {upload_error}")
+
+time.sleep(2)
+
+comment_field = WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[2]/textarea[1]'))
+)
+comment_field.send_keys("This is my CV!!!")
+time.sleep(1)
+
+save_attachment_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/form[1]/div[3]/button[2]')
+save_attachment_btn.submit()
+time.sleep(3)
