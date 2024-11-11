@@ -54,3 +54,9 @@ time.sleep(2)
 share_btn = driver.find_element(By.XPATH, '/html/body/div/div[1]/div[2]/div[2]/div/div[1]/div/div[2]/div/div/div/form/div[3]/button')
 share_btn.submit()
 time.sleep(5)
+
+# Like my own post
+like_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/*[name()="svg"][1]/*[name()="g"][1]/*[name()="path"][1]')
+like_btn.click()
+time.sleep(3)
+
