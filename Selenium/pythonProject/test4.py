@@ -60,3 +60,23 @@ like_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/
 like_btn.click()
 time.sleep(3)
 
+# Edit your post
+triple_dot_btn = driver.find_element(By.XPATH, '/html/body/div/div[1]/div[2]/div[2]/div/div[1]/div/div[3]/div[1]/div/div[1]/div/div[2]/li/button/i')
+triple_dot_btn.click()
+time.sleep(2)
+
+post_edit_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/li[1]/ul[1]/li[2]/p[1]')
+post_edit_btn.click()
+time.sleep(5)
+
+edit_post_text = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/textarea[1]')
+edit_post_text.send_keys(Keys.CONTROL + "a")
+time.sleep(2)
+edit_post_text.send_keys(Keys.DELETE)
+time.sleep(2)
+edit_post_text.send_keys("This is my EDITED POST!")
+time.sleep(3)
+
+edit_post_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[3]/button[1]')
+edit_post_btn.submit()
+time.sleep(5)
