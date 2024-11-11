@@ -107,4 +107,51 @@ time.sleep(1)
 
 candidate_save_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[8]/button[2]')
 candidate_save_btn.submit()
-time.sleep(1)
+time.sleep(6)
+
+# After creating the candidate
+shortlist_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[2]/div[2]/button[2]')
+shortlist_btn.click()
+time.sleep(4)
+
+notes_shortlist_field = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[2]/textarea[1]')
+notes_shortlist_field.send_keys("Seems nice IDK.")
+time.sleep(2)
+
+shortlist_save_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/button[2]')
+shortlist_save_btn.submit()
+time.sleep(5)
+
+# Shedule interview
+shedule_interview_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[2]/div[2]/button[2]')
+shedule_interview_btn.click()
+time.sleep(5)
+
+interview_title_input = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[2]/input[1]')
+interview_title_input.send_keys("Billie")
+time.sleep(2)
+
+current_admin_name = driver.find_element(By.XPATH, '/html/body/div/div[1]/div[1]/header/div[1]/div[3]/ul/li/span/p').text
+interviewer_field_input = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/input[1]')
+interviewer_field_input.send_keys(current_admin_name)
+time.sleep(5)
+interviewer_field_input.send_keys(Keys.ARROW_DOWN)
+time.sleep(3)
+interviewer_field_input.send_keys(Keys.ENTER)
+time.sleep(3)
+
+schedule_date = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/input[1]')
+schedule_date.send_keys("2024-12-11") # galimai reikes pakeisti per pristatyma
+time.sleep(2)
+
+schedule_time = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/input[1]')
+schedule_time.click()
+time.sleep(2)
+
+schedule_notes = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[5]/div[1]/div[2]/textarea[1]')
+schedule_notes.send_keys("Very excited to finally meet Billie EILISIH!")
+time.sleep(2)
+
+schedule_save_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/button[2]')
+schedule_save_btn.submit()
+time.sleep(5)
