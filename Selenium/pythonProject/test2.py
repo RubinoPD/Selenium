@@ -33,7 +33,7 @@ login_button.submit()
 time.sleep(5)
 
 # Navigate to the created employee in test1.py script
-driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/197")
+driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/275")
 time.sleep(2)
 
 # Fill in driver's license and its expiry date
@@ -76,3 +76,16 @@ for option in marital_status_options:
         option.click()
         break
 time.sleep(1)
+
+# Date of birth
+dob = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/input[1]')
+dob.send_keys("1992-11-11")
+
+# Gender
+gender = driver.find_element(By.XPATH, '//label[normalize-space()="Male"]')
+gender.click()
+
+# Save info
+save_personal_details_btn = driver.find_element(By.XPATH, '//div[@class="orangehrm-horizontal-padding orangehrm-vertical-padding"]//button[@type="submit"][normalize-space()="Save"]')
+save_personal_details_btn.submit()
+
