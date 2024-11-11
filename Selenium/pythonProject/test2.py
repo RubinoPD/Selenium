@@ -33,7 +33,7 @@ login_button.submit()
 time.sleep(5)
 
 # Navigate to the created employee in test1.py script
-driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/253")
+driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/253") # Change ID number based on your created users ID.
 time.sleep(2)
 
 # Fill in driver's license and its expiry date
