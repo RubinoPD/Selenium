@@ -44,12 +44,13 @@ message_field = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/di
 message_field.send_keys("Hello, THIS IS ME NICE TO MEET YOU ALL!!!")
 time.sleep(3)
 
-# img_path = os.path.abspath('C:/Users/RK/Desktop/Projects/Selenium/profile.jpg')
+file_path = "C:\\Users\\RK\\Desktop\\Projects\\Selenium\\profile.jpg"
 
-# file_input = driver.find_element(By.XPATH, '//input[@type="file"]')
-# file_input.send_keys("C:/Users/RK/Desktop/Projects/Selenium/profile.jpg")
-# time.sleep(3)
+file_input = driver.find_element(By.XPATH, '//input[@type="file"]')
+driver.execute_script("arguments[0].style.display = 'block';", file_input)  # Unhide the input element
+file_input.send_keys(file_path)
+time.sleep(2)
 
-share_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/i[1]')
+share_btn = driver.find_element(By.XPATH, '/html/body/div/div[1]/div[2]/div[2]/div/div[1]/div/div[2]/div/div/div/form/div[3]/button')
 share_btn.submit()
 time.sleep(5)
