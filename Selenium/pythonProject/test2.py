@@ -33,7 +33,7 @@ login_button.submit()
 time.sleep(5)
 
 # Navigate to the created employee in test1.py script
-driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/275")
+driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/253")
 time.sleep(2)
 
 # Fill in driver's license and its expiry date
@@ -80,10 +80,12 @@ time.sleep(1)
 # Date of birth
 dob = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/input[1]')
 dob.send_keys("1992-11-11")
+time.sleep(1)
 
 # Gender
 gender = driver.find_element(By.XPATH, '//label[normalize-space()="Male"]')
 gender.click()
+time.sleep(1)
 
 # Save info
 save_personal_details_btn = driver.find_element(By.XPATH, '//div[@class="orangehrm-horizontal-padding orangehrm-vertical-padding"]//button[@type="submit"][normalize-space()="Save"]')
@@ -100,6 +102,7 @@ time.sleep(1)
 
 test_field = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/div[1]/div[2]/input[1]')
 test_field.send_keys("TEST")
+time.sleep(1)
 
 custom_fields_save_btn = driver.find_element(By.XPATH, '//div[@class="orangehrm-custom-fields"]//button[@type="submit"][normalize-space()="Save"]')
 custom_fields_save_btn.submit()
@@ -137,4 +140,23 @@ time.sleep(1)
 
 save_attachment_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/form[1]/div[3]/button[2]')
 save_attachment_btn.submit()
+time.sleep(5)
+
+# File edit/download/remove
+attachment_edit_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[3]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/button[1]/i[1]')
+attachment_edit_btn.click()
 time.sleep(3)
+
+edit_comment = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[2]/textarea[1]')
+time.sleep(2)
+edit_comment.send_keys(Keys.CONTROL + "a")
+time.sleep(1)
+edit_comment.send_keys(Keys.DELETE)
+time.sleep(2)
+edit_comment.send_keys("This is edited comment!!!")
+time.sleep(2)
+
+save_edit_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/form[1]/div[4]/button[2]')
+save_edit_btn.submit()
+time.sleep(5)
+
