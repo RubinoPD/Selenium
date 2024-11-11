@@ -31,3 +31,25 @@ password_field.send_keys("admin123")
 login_button = driver.find_element(By.XPATH, '//button[@type="submit"]')
 login_button.submit()
 time.sleep(5)
+
+# Go to the Buzz window
+driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/buzz/viewBuzz")
+time.sleep(3)
+
+buzz_share_photo_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/button[1]')
+buzz_share_photo_btn.click()
+time.sleep(2)
+
+message_field = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/textarea[1]')
+message_field.send_keys("Hello, THIS IS ME NICE TO MEET YOU ALL!!!")
+time.sleep(3)
+
+# img_path = os.path.abspath('C:/Users/RK/Desktop/Projects/Selenium/profile.jpg')
+
+# file_input = driver.find_element(By.XPATH, '//input[@type="file"]')
+# file_input.send_keys("C:/Users/RK/Desktop/Projects/Selenium/profile.jpg")
+# time.sleep(3)
+
+share_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[1]/i[1]')
+share_btn.submit()
+time.sleep(5)
