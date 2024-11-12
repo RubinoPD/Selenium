@@ -44,7 +44,7 @@ message_field = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/di
 message_field.send_keys("Hello, THIS IS ME NICE TO MEET YOU ALL!!!")
 time.sleep(3)
 
-file_path = "C:\\Users\\RK\\Desktop\\Projects\\Selenium\\profile.jpg"
+file_path = "C:\\Users\\Robertas\\Desktop\\Selenium\\Selenium\\profile.jpg" # "C:\Users\Robertas\Desktop\Selenium\Selenium\profile.jpg"
 
 file_input = driver.find_element(By.XPATH, '//input[@type="file"]')
 driver.execute_script("arguments[0].style.display = 'block';", file_input)  # Unhide the input element
@@ -80,3 +80,14 @@ time.sleep(3)
 edit_post_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[3]/button[1]')
 edit_post_btn.submit()
 time.sleep(5)
+
+# Comment on your own post
+comment_btn = driver.find_element(By.XPATH, '//i[contains(@class, "bi-chat-text-fill")]')
+comment_btn.click()
+time.sleep(2)
+
+comment_input_field = driver.find_element(By.XPATH, '//input[@placeholder="Write your comment..."]')
+comment_input_field.send_keys("Welcome on board! :)")
+comment_input_field.send_keys(Keys.ENTER)
+time.sleep(2)
+
