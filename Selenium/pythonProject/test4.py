@@ -110,3 +110,25 @@ time.sleep(2)
 edit_comment_input.send_keys(Keys.ENTER)
 time.sleep(2)
 
+# Delete your own comment
+like_comment_btn = driver.find_element(By.XPATH, '//div[contains(@class, "orangehrm-post-comment-action")]//p[text()="Delete"]')
+like_comment_btn.click()
+time.sleep(2)
+
+alert_btn_yes = driver.find_element(By.XPATH, '/html/body/div/div[3]/div/div/div/div[3]/button[2]')
+alert_btn_yes.click()
+time.sleep(4)
+
+# Delete your own POST
+menu_for_delete = driver.find_element(By.XPATH, '/html/body/div/div[1]/div[2]/div[2]/div/div[1]/div/div[3]/div[1]/div/div[1]/div/div[2]/li/button/i')
+menu_for_delete.click()
+time.sleep(2)
+
+post_delete_btn = driver.find_element(By.XPATH, '//li//p[text()="Delete Post"]')
+post_delete_btn.click()
+time.sleep(2)
+alert2_btn_yes = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[3]/button[2]')
+alert2_btn_yes.click()
+time.sleep(2)
+
+print("Ketvirta uzduotis padaryta")
