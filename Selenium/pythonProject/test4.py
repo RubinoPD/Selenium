@@ -88,6 +88,12 @@ time.sleep(2)
 
 comment_input_field = driver.find_element(By.XPATH, '//input[@placeholder="Write your comment..."]')
 comment_input_field.send_keys("Welcome on board! :)")
+time.sleep(2)
 comment_input_field.send_keys(Keys.ENTER)
+time.sleep(2)
+
+# Like your own comment
+like_comment_btn = driver.find_element(By.XPATH, '//div[contains(@class, "orangehrm-post-comment-action")]//p[text()="Like"]')
+like_comment_btn.click()
 time.sleep(2)
 
