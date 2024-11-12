@@ -44,7 +44,7 @@ message_field = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/di
 message_field.send_keys("Hello, THIS IS ME NICE TO MEET YOU ALL!!!")
 time.sleep(3)
 
-file_path = "C:\\Users\\Robertas\\Desktop\\Selenium\\Selenium\\profile.jpg" # "C:\Users\Robertas\Desktop\Selenium\Selenium\profile.jpg"
+file_path = "C:\\Users\\Robertas\\Desktop\\Selenium\\Selenium\\profile.jpg" # Use your own path
 
 file_input = driver.find_element(By.XPATH, '//input[@type="file"]')
 driver.execute_script("arguments[0].style.display = 'block';", file_input)  # Unhide the input element
