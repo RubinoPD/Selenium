@@ -38,7 +38,7 @@ time.sleep(3)
 
 buzz_share_photo_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/button[1]')
 buzz_share_photo_btn.click()
-time.sleep(2)
+time.sleep(5)
 
 message_field = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/textarea[1]')
 message_field.send_keys("Hello, THIS IS ME NICE TO MEET YOU ALL!!!")
@@ -90,10 +90,23 @@ comment_input_field = driver.find_element(By.XPATH, '//input[@placeholder="Write
 comment_input_field.send_keys("Welcome on board! :)")
 time.sleep(2)
 comment_input_field.send_keys(Keys.ENTER)
-time.sleep(2)
+time.sleep(4)
 
 # Like your own comment
 like_comment_btn = driver.find_element(By.XPATH, '//div[contains(@class, "orangehrm-post-comment-action")]//p[text()="Like"]')
 like_comment_btn.click()
+time.sleep(2)
+
+# Edit your own comment
+edit_comment_btn = driver.find_element(By.XPATH, '//div[contains(@class, "orangehrm-post-comment-action")]//p[text()="Edit"]')
+edit_comment_btn.click()
+time.sleep(2)
+
+edit_comment_input = driver.find_element(By.XPATH, '//input[contains(@class, "oxd-input--focus")]')
+edit_comment_input.send_keys(Keys.CONTROL + 'a', Keys.BACKSPACE)
+time.sleep(2)
+edit_comment_input.send_keys("This is EDITED COMMENT!!!")
+time.sleep(2)
+edit_comment_input.send_keys(Keys.ENTER)
 time.sleep(2)
 
