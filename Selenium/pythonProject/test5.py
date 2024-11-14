@@ -483,4 +483,75 @@ delete_whole_group = driver.find_element(By.XPATH, '//div[6]//button[1]//i[1]')
 delete_whole_group.click()
 time.sleep(2)
 
+# Select Criteria
+criteria_dropdown = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]'))
+)
+criteria_dropdown.click()
+time.sleep(2)
+
+# Wait for and loop through options to select "Employee Name"
+criteria_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+for option in criteria_options:
+    if option.text.strip() == "Employee Name":
+        option.click()
+        break
+time.sleep(2)
+
+# Add another CRITERIA
+add_another_criteria_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]/i[1]')
+add_another_criteria_btn.click()
+time.sleep(2)
+
+criteria_dropdown = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]'))
+)
+criteria_dropdown.click()
+time.sleep(2)
+
+# Wait for and loop through options to select "Gender"
+criteria_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+for option in criteria_options:
+    if option.text.strip() == "Gender":
+        option.click()
+        break
+time.sleep(2)
+
+add_another_criteria_btn.click()
+time.sleep(2)
+
+# Add name to criteria Employee Name
+employee_name_field = driver.find_element(By.XPATH, '//input[@placeholder="Type for hints..."]')
+employee_name_field.send_keys("Bobert Perdolia")
+time.sleep(2)
+employee_name_field.send_keys(Keys.ARROW_DOWN + Keys.ENTER)
+time.sleep(2)
+
+# Select Gender
+gender_select = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[6]/div[1]/div[2]/div[1]/div[1]/div[1]'))
+)
+gender_select.click()
+time.sleep(2)
+
+# Wait for and loop through options to select "Male"
+gender_select_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+for option in gender_select_options:
+    if option.text.strip() == "Male":
+        option.click()
+        break
+time.sleep(2)
+
+# Save report
+
+save_report_btn = driver.find_element(By.XPATH, '//button[@type="submit"]')
+save_report_btn.submit()
+time.sleep(2)
+
 print("Script is done!")
