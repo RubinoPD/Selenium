@@ -549,9 +549,8 @@ for option in gender_select_options:
 time.sleep(2)
 
 # Save report
-
 save_report_btn = driver.find_element(By.XPATH, '//button[@type="submit"]')
 save_report_btn.submit()
 time.sleep(2)
 
-print("Script is done!")
+print("Task 5 is done!")
