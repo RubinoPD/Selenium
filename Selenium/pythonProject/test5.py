@@ -93,17 +93,17 @@ delete_2_criteria_btn.click()
 time.sleep(2)
 
 # Select Include
-criteria_dropdown = WebDriverWait(driver, 10).until(
+include_dropdown = WebDriverWait(driver, 10).until(
     EC.element_to_be_clickable((By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]'))
 )
-criteria_dropdown.click()
+include_dropdown.click()
 time.sleep(2)
 
 # Wait for and loop through options to select "Current And Past Employees"
-criteria_options = WebDriverWait(driver, 10).until(
+include_options = WebDriverWait(driver, 10).until(
     EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
 )
-for option in criteria_options:
+for option in include_options:
     if option.text.strip() == "Current and Past Employees":
         option.click()
         break
