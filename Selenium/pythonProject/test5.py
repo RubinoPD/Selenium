@@ -151,3 +151,21 @@ time.sleep(2)
 # Enable include header
 include_header_enable = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[5]/div[1]/label[1]/span[1]')
 include_header_enable.click()
+time.sleep(2)
+
+# Add Employee ID
+criteria_dropdown.click()
+time.sleep(2)
+
+criteria_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+
+for option in criteria_options:
+    if option.text.strip() == "Employee Id":
+        option.click()
+        break
+time.sleep(2)
+
+add_display_field_btn.click()
+time.sleep(2)
