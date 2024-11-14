@@ -169,3 +169,58 @@ time.sleep(2)
 
 add_display_field_btn.click()
 time.sleep(2)
+
+# Add Last Name
+criteria_dropdown.click()
+time.sleep(2)
+
+criteria_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+
+for option in criteria_options:
+    if option.text.strip() == "Employee Last Name":
+        option.click()
+        break
+time.sleep(2)
+
+add_display_field_btn.click()
+time.sleep(2)
+
+# Add Date of Birth
+criteria_dropdown.click()
+time.sleep(2)
+
+criteria_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+
+for option in criteria_options:
+    if option.text.strip() == "Date of Birth":
+        option.click()
+        break
+time.sleep(2)
+
+add_display_field_btn.click()
+time.sleep(2)
+
+# Add Date of Birth
+criteria_dropdown.click()
+time.sleep(2)
+
+criteria_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+
+for option in criteria_options:
+    if option.text.strip() == "Gender":
+        option.click()
+        break
+time.sleep(2)
+
+add_display_field_btn.click()
+time.sleep(2)
+
+
+
+print("Script is done!")
