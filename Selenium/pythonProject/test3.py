@@ -45,14 +45,14 @@ last_name = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]
 last_name.send_keys("Eilish")
 time.sleep(1)
 
-# Select Nationality
+# Select Role
 vacancy_dropdown = WebDriverWait(driver, 10).until(
     EC.element_to_be_clickable((By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]'))
 )
 vacancy_dropdown.click()
 time.sleep(1)
 
-# Wait for and loop through options to select "Software Engineer"
+# Wait for and loop through options to select "Payroll Administrator"
 vacancy_options = WebDriverWait(driver, 10).until(
     EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
 )

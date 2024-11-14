@@ -36,3 +36,24 @@ time.sleep(5)
 driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/definePredefinedReport")
 time.sleep(3)
 
+# Report name
+
+report_name = driver.find_element(By.XPATH, '//input[@placeholder="Type here ..."]')
+report_name.send_keys("TEST REPORT")
+
+# Select Criteria
+criteria_dropdown = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]'))
+)
+criteria_dropdown.click()
+time.sleep(2)
+
+# Wait for and loop through options to select "Employee Name"
+criteria_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+for option in criteria_options:
+    if option.text.strip() == "Employee Name":
+        option.click()
+        break
+time.sleep(2)
