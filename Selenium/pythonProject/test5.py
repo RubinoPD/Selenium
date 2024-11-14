@@ -91,3 +91,63 @@ time.sleep(2)
 delete_2_criteria_btn = driver.find_element(By.XPATH, '//i[@class="oxd-icon bi-trash-fill"]')
 delete_2_criteria_btn.click()
 time.sleep(2)
+
+# Select Include
+criteria_dropdown = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]'))
+)
+criteria_dropdown.click()
+time.sleep(2)
+
+# Wait for and loop through options to select "Current And Past Employees"
+criteria_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+for option in criteria_options:
+    if option.text.strip() == "Current and Past Employees":
+        option.click()
+        break
+time.sleep(2)
+
+# Select Display field group
+criteria_dropdown = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]'))
+)
+criteria_dropdown.click()
+time.sleep(2)
+
+# Wait for and loop through options to select "Personal"
+criteria_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+for option in criteria_options:
+    if option.text.strip() == "Personal":
+        option.click()
+        break
+time.sleep(2)
+
+# Select Display Field
+criteria_dropdown = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]'))
+)
+criteria_dropdown.click()
+time.sleep(2)
+
+# Wait for and loop through options to select "Employee First Name"
+criteria_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+for option in criteria_options:
+    if option.text.strip() == "Employee First Name":
+        option.click()
+        break
+time.sleep(2)
+
+# Add field button
+add_display_field_btn = driver.find_element(By.XPATH, '//div[@class="oxd-form-row"]//div[2]//div[2]//div[2]//button[1]//i[1]')
+add_display_field_btn.click()
+time.sleep(2)
+
+# Enable include header
+include_header_enable = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[5]/div[1]/label[1]/span[1]')
+include_header_enable.click()
