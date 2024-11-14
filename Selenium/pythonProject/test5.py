@@ -82,3 +82,12 @@ time.sleep(2)
 add_another_criteria_btn2 = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]/i[1]')
 add_another_criteria_btn2.click()
 time.sleep(2)
+
+# Delete Criteria
+delete_1_criteria_btn = driver.find_element(By.XPATH, '//div[@class="oxd-form-row"]//div[3]//button[1]//i[1]')
+delete_1_criteria_btn.click()
+time.sleep(2)
+
+delete_2_criteria_btn = driver.find_element(By.XPATH, '//i[@class="oxd-icon bi-trash-fill"]')
+delete_2_criteria_btn.click()
+time.sleep(2)
