@@ -37,9 +37,9 @@ driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/definePr
 time.sleep(3)
 
 # Report name
-
 report_name = driver.find_element(By.XPATH, '//input[@placeholder="Type here ..."]')
 report_name.send_keys("TEST REPORT")
+time.sleep(2)
 
 # Select Criteria
 criteria_dropdown = WebDriverWait(driver, 10).until(
@@ -56,4 +56,29 @@ for option in criteria_options:
     if option.text.strip() == "Employee Name":
         option.click()
         break
+time.sleep(2)
+
+# Add another CRITERIA
+add_another_criteria_btn = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]/i[1]')
+add_another_criteria_btn.click()
+time.sleep(2)
+
+criteria_dropdown = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]'))
+)
+criteria_dropdown.click()
+time.sleep(2)
+
+# Wait for and loop through options to select "Gender"
+criteria_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+for option in criteria_options:
+    if option.text.strip() == "Gender":
+        option.click()
+        break
+time.sleep(2)
+
+add_another_criteria_btn2 = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[2]/div[2]/button[1]/i[1]')
+add_another_criteria_btn2.click()
 time.sleep(2)
