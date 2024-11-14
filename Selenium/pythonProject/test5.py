@@ -465,4 +465,22 @@ include_header_enable = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/d
 include_header_enable.click()
 time.sleep(2)
 
+# Delete 3 display field rows
+delete_field_button = driver.find_element(By.XPATH, '//span[normalize-space()="Employee Id"]//i[@class="oxd-icon bi-x --clear"]')
+delete_field_button.click()
+time.sleep(2)
+
+delete_field_button = driver.find_element(By.XPATH, '//span[normalize-space()="Relationship"]//i[@class="oxd-icon bi-x --clear"]')
+delete_field_button.click()
+time.sleep(2)
+
+delete_field_button = driver.find_element(By.XPATH, '//span[normalize-space()="Fluency"]//i[@class="oxd-icon bi-x --clear"]')
+delete_field_button.click()
+time.sleep(2)
+
+# Delete whole GROUP
+delete_whole_group = driver.find_element(By.XPATH, '//div[6]//button[1]//i[1]')
+delete_whole_group.click()
+time.sleep(2)
+
 print("Script is done!")
