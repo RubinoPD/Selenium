@@ -291,4 +291,91 @@ include_header_enable = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/d
 include_header_enable.click()
 time.sleep(2)
 
+# Select Contact Details GROUP
+display_field_grp_dropdown.click()
+time.sleep(2)
+
+# Wait for and loop through options to select "Emergency Contacts"
+display_field_dropdown_grp_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+for option in display_field_dropdown_grp_options:
+    if option.text.strip() == "Emergency Contacts":
+        option.click()
+        break
+time.sleep(2)
+
+# Add Name
+display_field_dropdown.click()
+time.sleep(2)
+
+display_field_dropdown_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+
+for option in display_field_dropdown_options:
+    if option.text.strip() == "Name":
+        option.click()
+        break
+time.sleep(2)
+
+add_display_field_btn.click()
+time.sleep(2)
+
+# Add Home Telephone
+display_field_dropdown.click()
+time.sleep(2)
+
+display_field_dropdown_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+
+for option in display_field_dropdown_options:
+    if option.text.strip() == "Home Telephone":
+        option.click()
+        break
+time.sleep(2)
+
+add_display_field_btn.click()
+time.sleep(2)
+
+# Add Work Telephone
+display_field_dropdown.click()
+time.sleep(2)
+
+display_field_dropdown_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+
+for option in display_field_dropdown_options:
+    if option.text.strip() == "Work Telephone":
+        option.click()
+        break
+time.sleep(2)
+
+add_display_field_btn.click()
+time.sleep(2)
+
+# Add Relationship
+display_field_dropdown.click()
+time.sleep(2)
+
+display_field_dropdown_options = WebDriverWait(driver, 10).until(
+    EC.visibility_of_all_elements_located((By.XPATH, '//div[@role="option"]'))
+)
+
+for option in display_field_dropdown_options:
+    if option.text.strip() == "Relationship":
+        option.click()
+        break
+time.sleep(2)
+
+add_display_field_btn.click()
+time.sleep(2)
+
+# Enable header
+include_header_enable = driver.find_element(By.XPATH, '/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[11]/div[1]/label[1]/span[1]')
+include_header_enable.click()
+time.sleep(2)
+
 print("Script is done!")
